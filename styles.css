@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh; /* Default height */
+  width: 30vw; /* Default width */
+  background-color: #d3d3d3; /* Light Gray */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.header {
+  background-color: #e0e0e0;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.contact-name {
+  font-size: 18px;
+  font-weight: 300;
+  color: black;
+}
+
+.chat-area {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #ebe5cdfd; /* Medium Gray */
+}
+
+.message {
+  max-width: 60%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  clear: both;
+}
+
+.received {
+  background-color: #fff;
+  align-self: flex-start;
+}
+
+.sent {
+  background-color: #e9ffd8;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.message-input-area {
+  display: flex;
+  padding: 10px;
+  background-color: #e0e0e0;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.message-input-area input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.message-input-area button {
+  background-color: #a9a9a9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.message-input-area button:hover {
+  background-color: #c0bebe;
+}
+
+/* Media Queries for small and medium screens */
+@media (max-width: 768px) {
+  .chat-container {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-container {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+  }
+}
