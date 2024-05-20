@@ -12,19 +12,20 @@
     <div class="chat-container">
         <div class="header">
             <div class="header-content">
-                <img src="/img/Ellipse 3.png" alt="Profile Picture" class="profile-picture">
+                <img src="img/profile.png" alt="Profile Picture" class="profile-picture">
                 <div class="contact-name">+234</div>
             </div>
         </div>
-        <div class="chat-area">
-            <div class="message received">Hello</div>
-            <div class="message sent">Hi there</div>
+        <div class="chat-area" id="chat-area">
+            <!-- Messages will be dynamically added here -->
         </div>
         <div class="message-input-area">
-            <input type="text" placeholder="Type a message">
-            <button>Send</button>
+            <input type="text" placeholder="Type a message" id="message-input">
+            <button id="send-button">Send</button>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
