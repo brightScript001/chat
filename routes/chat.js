@@ -1,19 +1,22 @@
+document.addEventListener('DOMContentLoaded', function () {
+    // Add event listener to send button
+    document.getElementById('send-button').addEventListener('click', sendMessage);
+});
 
-document.getElementById('send-button').addEventListener('click', async () => {
-    console.log('Send button clicked'); // Debugging statement
+async function sendMessage() {
     const messageInput = document.getElementById('message-input');
     const message = messageInput.value.trim();
-    if (message === '') {
-        console.log('Empty message'); // Debugging statement
-        return;
-    }
+    if (message === '') return;
 
+    // Clear input field
     messageInput.value = '';
+
+    // Display sent message in chat area
     addMessageToChatArea(message, 'sent');
 
     try {
-        console.log('Sending message:', message); // Debugging statement
-        const response = await fetch('/webhook', { // Updated endpoint
+        // Send message to server
+        const response = await fetch('/webhook', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,20 +24,18 @@ document.getElementById('send-button').addEventListener('click', async () => {
             body: JSON.stringify({ message }),
         });
 
-        console.log('Response status:', response.status); // Debugging statement
-
         if (!response.ok) {
             throw new Error('Failed to send message');
         }
 
+        // Display server response in chat area
         const data = await response.json();
-        console.log('Response data:', data); // Debugging statement
         addMessageToChatArea(data.message, 'received');
     } catch (error) {
         console.error('Error sending message:', error);
         addMessageToChatArea('Failed to send message', 'error');
     }
-});
+}
 
 function addMessageToChatArea(message, type) {
     const chatArea = document.getElementById('chat-area');
