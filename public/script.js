@@ -1,4 +1,3 @@
-
 document.getElementById('send-button').addEventListener('click', async () => {
     console.log('Send button clicked'); // Debugging statement
     const messageInput = document.getElementById('message-input');
@@ -24,12 +23,18 @@ document.getElementById('send-button').addEventListener('click', async () => {
         console.log('Response status:', response.status); // Debugging statement
 
         if (!response.ok) {
+            console.error('Error sending message:', await response.text());
+            addMessageToChatArea('Failed to send message', 'error');
             throw new Error('Failed to send message');
         }
 
         const data = await response.json();
         console.log('Response data:', data); // Debugging statement
-        addMessageToChatArea(data.message, 'received');
+
+        // Delay the response by 1 second
+        setTimeout(() => {
+            addMessageToChatArea(data.message, 'received');
+        }, 1000);
     } catch (error) {
         console.error('Error sending message:', error);
         addMessageToChatArea('Failed to send message', 'error');

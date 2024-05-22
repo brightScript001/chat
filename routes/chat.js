@@ -1,3 +1,5 @@
+//chat.js
+
 document.addEventListener('DOMContentLoaded', function () {
     // Add event listener to send button
     document.getElementById('send-button').addEventListener('click', sendMessage);
