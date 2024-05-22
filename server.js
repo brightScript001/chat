@@ -22,7 +22,7 @@ const client = twilio(accountSid, authToken);
 app.post('/webhook', async (req, res) => {
     console.log('Received a POST request at /webhook');
 
-    const messageBody = req.body.message.toLowerCase(); // Updated to req.body.message
+    const messageBody = req.body.message.toLowerCase(); // Updated to req.body.message.
     let responseMessage = '';
     console.log('Received message:', messageBody); // Debugging statement
 
